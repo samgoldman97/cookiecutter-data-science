@@ -55,8 +55,6 @@ The directory structure of your new project looks like this:
 │                         the creator's initials, and a short `-` delimited description, e.g.
 │                         `1.0-jqp-initial-data-exploration`.
 │
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
 ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── figures        <- Generated graphics and figures to be used in reporting
 │
@@ -67,15 +65,23 @@ The directory structure of your new project looks like this:
 │   ├── __init__.py    <- Makes src a Python module
 │   │
 │   ├── data           <- Scripts to download or generate data
-│   │   └── make_dataset.py
+│   │   
+│   ├── dataset           <- Define dataloader
 │   │
 │   ├── features       <- Scripts to turn raw data into features for modeling
 │   │   └── build_features.py
 │   │
-│   ├── models         <- Scripts to train models and then use trained models to make
-│   │   │                 predictions
-│   │   ├── predict_model.py
-│   │   └── train_model.py
+│   ├── learning       <- Training various models
+│   │
+│   ├── models         <- Store model definitions
+│   │   └── model_list.py <- List of models for export and calling in other scripts
+│   │   
+│   ├── scripts         <- Store training scripts and launchers
+│   │   ├── launch_experiments.py <- Helper script to perform grid searches
+│   │   └── generic_slurm.sh <- Example SLURM script to pass in other commands
+│   │
+│   ├── utils                <- Store various helper scripts 
+│   │   └──  launcher_utils.py <- Helper script to parse json config files
 │   │
 │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
 │       └── visualize.py
